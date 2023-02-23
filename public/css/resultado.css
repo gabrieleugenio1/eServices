@@ -1,0 +1,43 @@
+.design{
+    border: 1px solid black;   
+    margin: 10px 25px;
+    height: 77vh;    
+    margin: 0 auto;
+}
+.flex{
+    display:flex;
+    flex-direction: column;
+    
+}
+.titulo{
+    display: flex;    
+    color: blue;
+    justify-content: space-around;    
+}
+.nomeusuario{    
+    color: green;    
+}
+.nomeusuario > a {
+    text-decoration: none;
+}
+
+.texto{    
+    align-self:flex-end;
+    display: flex;
+    justify-content: right;
+    position: relative;
+    margin: 3rem 0 0 0;
+}
+
+@media (max-width: 350px) {
+    .design{
+        margin: 0 5px;
+        height: auto    ;
+    }
+}
+
+@media (max-width:526px){
+    .titulo{
+        flex-direction: column;
+    }
+}

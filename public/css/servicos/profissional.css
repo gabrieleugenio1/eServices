@@ -1,0 +1,26 @@
+.profissional{    
+    max-width: 1170px;
+    margin: 1rem auto 5.8rem auto;
+    display: flex;
+    padding: 0 25px;  
+}
+.como-funciona-freelancer{       
+    padding: 2rem;  
+}
+.como-funciona-freelancer,.como-funciona-cliente{
+    border-left:1px solid #000;
+    border-right:1px solid #000;
+}
+.como-funciona-cliente{    
+    padding: 2rem;
+}
+
+@media (max-width: 600px){
+    .profissional{
+        flex-direction: column;
+    }
+    .como-funciona-freelancer,.como-funciona-cliente{
+        border-left:1px solid #000;
+        border-right:1px solid #000;
+    }
+}

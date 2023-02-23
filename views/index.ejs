@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="apple-touch-icon" sizes="180x180" href="/assets/icons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/assets/icons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/assets/icons/favicon-16x16.png">
+    <link rel="manifest" href="/assets/icons/site.webmanifest">
+    <title>eServices Senac</title>
+
+    <link rel="stylesheet" type="text/css" href="/css/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="/css/reset.css" />
+    <link rel="stylesheet" type="text/css" href="/css/main.css" />
+    <link rel="stylesheet" type="text/css" href="/css/responsivo.css">
+    <script src="/js/jquery.js"></script>
+    <script src="/js/menu.js"></script>
+    <link rel="stylesheet" type="text/css"
+        href="/css/font-awesome/solid.css">
+    <script src="/js/solid.js"></script>
+</head>
+
+<body>
+    <%- include("partials/navbar"); %>
+
+        <nav class="menu-secundario">
+            <ul>
+                <li><a href="/topicos/senac">O Senac</a> </li>
+                <li><a href="/topicos/servicos">Serviços</a> </li>
+                <% if(usuario) { %>
+                    <li>Seja bem-vindo, <%= usuario.nome.replace(/\w/, c=> c.toUpperCase()) %></li>
+                    <%} %>
+
+            </ul>
+        </nav>
+
+
+
+        <main>
+            <div class="geral">
+                <div class="nomecertificacaosenac">
+                    <h1>Aqui você encontra os melhores profissionais com cerficação SENAC</h4>
+                </div>
+
+                <div class="limcarrosel">
+                    <div id="carouselExampleDark" class="carousel carousel-light slide" data-bs-ride="carousel">
+                        <div class="carousel-indicators">
+                          <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                          <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                          <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                          <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="3" aria-label="Slide 4"></button>
+                          <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="4" aria-label="Slide 5"></button>
+                          <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="5" aria-label="Slide 6"></button>
+
+                       
+                       
+                       
+                        </div>
+                        <div class="carousel-inner">
+                      <div class="carousel-item active" data-bs-interval="8000">
+                        <img src="/assets/gastronomia.png" class="d-block w-100" alt="Gastronomia">
+                      </div>
+                      <div class="carousel-item" data-bs-interval="5000">
+                        <img src="/assets/administracao.png" class="d-block w-100" alt="Administração">
+                      </div>
+                      <div class="carousel-item" data-bs-interval="5000">
+                        <img src="/assets/jogosdigitais.png" class="d-block w-100" alt="Jogos digitais">
+                      </div>
+                      <div class="carousel-item" data-bs-interval="5000">
+                        <img src="/assets/marketing.png" class="d-block w-100" alt="Marketing">
+                      </div>
+                      <div class="carousel-item" data-bs-interval="5000">
+                        <img src="/assets/moda.png" class="d-block w-100" alt="Moda">
+                      </div>
+                      <div class="carousel-item" data-bs-interval="5000">
+                        <img src="/assets/tecnologia.png" class="d-block w-100" alt="Tecnologia">
+                      </div>                     
+                    </div>
+                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Previous</span>
+                      </button>
+                      <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Next</span>
+                      </button> 
+                  </div>
+                </div>
+
+                <section class="principal">
+                    <div class="container-fluid">
+                        <div class="servicos">
+                            <div style="display: flex; align-items: center;">
+                                <h2>Serviços oferecidos</h2>
+                                <% if(usuario) { %>
+                                    <div style="margin-left: 1rem;" class="criarpost">
+                                        <button type="button" class="btn btn-dark" data-bs-toggle="modal"
+                                            data-bs-target="#exampleModal">
+                                            <i class="fa-solid fa-circle-plus"></i>
+                                            Criar serviço
+                                        </button>
+
+                                        <!-- Modal -->
+                                        <div class="modal fade" id="exampleModal" tabindex="-1"
+                                            aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                            <div class="modal-dialog">
+                                                <div class="modal-content">
+                                                    <div class="modal-header">
+                                                        <h1 class="modal-title fs-5" id="exampleModalLabel">Divulgar
+                                                            serviço</h1>
+                                                        <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                            aria-label="Close"></button>
+                                                    </div>
+                                                    <div class="modal-body">
+
+                                                        <form class="container criarpost" action="/criarservico"
+                                                            method="post">
+
+                                                            <div class="novopost">
+                                                                <div class="titulo">
+                                                                    <label for="titulo">Titulo</label>
+                                                                </div>
+                                                                <input type="text" name="titulo" id="descricaoTitulo"
+                                                                    maxlength="55"
+                                                                    placeholder="Digite o título" required><br><br><br>
+
+
+                                                                <div class="titulo">
+                                                                    <label for="descricao">Descrição</label>
+                                                                </div>
+                                                                <textarea name="descricao" id="descricao"
+                                                                    placeholder="Dê uma breve descrição do seu serviço"
+                                                                    cols="30" rows="10" maxlength="1000"
+                                                                    style="resize: none;" required></textarea>
+                                                                <span class="caracteres">1000 caracteres restantes.
+                                                                </span>
+                                                                <br><br>
+                                                                <div style="display:flex; justify-content:center;">
+                                                                    <small>Verifique antes de enviar, não poderá alterar depois.</small>
+                                                                 </div>
+                                                                <div class="modal-footer">
+                                                                    <button type="button" class="btn btn-secondary"
+                                                                        data-bs-dismiss="modal"
+                                                                        style="padding: 10px;">Fechar</button>
+                                                                    <input style="padding: 10px;"
+                                                                        class="btn btn-primary" type="submit"
+                                                                        value="Criar serviço">
+                                                                </div>
+                                                        </form>
+
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <% } %>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="grid cards">                     
+                        <% if(post) { %>
+                            <% post.forEach((post)=>{%>
+                                <div class="resultados" style="margin-left: 5px;">
+                                    <img style="width: 64px; height: 64px; padding-top: 2px;" src="/assets/logo.png"
+                                        alt="">
+                                    <div class="corpo">
+                                        <a href="/servico/<%= post.id %>">
+                                            <h3>
+                                                <%= post.titulo %>
+                                            </h3>
+                                        </a>
+                                        <div class="texto">
+                                            <span>
+                                                <%= post.descricao.substring(0, 80,"...") %>
+                                            </span>
+
+                                        </div>
+                                        <a class="saibamais" href="/servico/<%= post.id %>">Saiba mais</a>
+                                    </div>
+                                </div>
+                                <% }) %>
+                                    <%} %>
+                    </div>
+            </div>
+            </section>
+            </div>
+     
+        </main>
+
+
+        <%- include("./partials/footer"); %>
+            <script src="/js/main.js"></script>
+            <script src="/js/bootstrap.bundle.min.js"></script>
+            <script>
+
+            </script>
+</body>
+
+</html>

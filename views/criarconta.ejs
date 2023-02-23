@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8" />
+  <title>Criar conta</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/icons/apple-touch-icon.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/icons/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="/assets/icons/favicon-16x16.png" />
+  <link rel="manifest" href="/assets/icons/site.webmanifest" />
+  <link rel="stylesheet" type="text/css" href="/css/bootstrap.css" />
+  <link rel="stylesheet" type="text/css" href="/css/reset.css" />
+  <link rel="stylesheet" type="text/css" href="/css/main.css" />
+  <link rel="stylesheet" href="/css/responsivo.css" />
+  <link rel="stylesheet" type="text/css" href="/css/forms.css" /> 
+  <script src="/js/jquery.js"></script>
+  <script src="/js/jmask.js"></script>
+  <script src="/js/menu.js"></script>
+</head>
+
+<body>
+  <%- include("partials/navbar"); %>
+
+    <main>
+      <% if(resposta=="Conta criada com sucesso." ){ %>
+        <div class="alert alert-success" style="position: absolute">
+          <strong>Conta criada com sucesso.</strong>
+        </div>
+        <% } %>
+          <%if(erros.length>0){ %>
+            <div class="alert alert-danger" style="position: absolute">
+              <% for(erro of erros) {%>
+                <%= erro.mensagem %>
+                  <% } %>
+            </div>
+            <%} %>
+              <div class="form-login">
+                <form class="container" action="/criarconta" method="post" style="margin: 55px 25px">
+                  <label for="nome">Nome:</label>
+                  <input type="text" name="nome" placeholder="Digite seu nome de usuário" required /><br />
+                  <label for="email">Email:</label>
+                  <input type="email" name="email" placeholder="Digite seu email" required /><br />
+                  <label for="celular">Celular:</label>
+                  <input type="tel" name="celular" id="celular" minlength="14"
+                    placeholder="Digite seu celular para entrarem em contato" required
+                    oninvalid="this.setCustomValidity('Insira um número válido')"
+                    onchange="try{setCustomValidity('')}catch(e){}" /><br />
+                  <label for="senha">Senha:</label>
+                  <input type="password" name="senha" minlength="6" placeholder="Digite sua senha" required />
+                  <small>No mínimo 6 dígitos</small>
+                  <br/>
+                  
+                  <input style="padding: 10px" class="submit" type="submit" value="Criar Conta" />
+                </form>
+              </div>
+    </main>
+    <%- include("./partials/footer"); %>
+    <script src="/js/main.js"></script>
+    <script>
+      $("#celular").mask("(00)00000-0000");
+    </script>
+</body>
+
+</html>

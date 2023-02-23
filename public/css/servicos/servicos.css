@@ -1,0 +1,11 @@
+.info-servicos{
+    display:flex;
+    flex-direction: column;
+    margin-top: 10px;
+}
+.info-servicos div{
+    justify-content: center;
+}
+.sobre-instituicao{
+    height: 100%;
+}

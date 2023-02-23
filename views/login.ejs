@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Login</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="apple-touch-icon" sizes="180x180" href="/assets/icons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/assets/icons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/assets/icons/favicon-16x16.png">
+    <link rel="manifest" href="/assets/icons/site.webmanifest">
+    <link rel="stylesheet" type="text/css" href="/css/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="/css/reset.css" />
+    <link rel="stylesheet" type="text/css" href="/css/main.css" />
+    <link rel="stylesheet" type="text/css" href="/css/responsivo.css">
+    <link rel="stylesheet" type="text/css" href="/css/forms.css"/>
+    <script src="/js/menu.js"></script>
+    </head>
+<body>
+    
+    <%- include("partials/navbar"); %>
+    
+    <main>
+        <% if(resposta=="Usuário ou senha invalidos."){ %>
+            <div class="alert alert-danger" style="position: absolute;">
+                <strong>Email ou senha está incorreto</strong>
+            </div>
+       <% } %>
+        <div class="form-login">
+        <form class = "container" action="/logar" method="post">
+
+            <label for="email">Email:</label>
+            <input type="email" name="email" id="email" placeholder="Digite seu email" required><br>
+            <label for="senha">Senha:</label>
+            <input type="password" name="senha" id="senha" placeholder="Digite sua senha" required>
+            <br>
+            <a href=""><p>Esqueci a senha</p></a>
+            <input class="submit" type="submit" value="Entrar">
+
+        </form>
+        </div>
+
+        
+    </main>
+    <%- include("./partials/footer"); %>
+    <script src="/js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,76 @@
+    <header class="topo">
+        <div class="containerr" style="height: 60px;">
+            <div class="logoo">
+                <a href="/"><img style="width: 40px;" src="/assets/logo.png"
+                        alt="Logo da página"></a>
+                <a href="/" class="nomelogo" style="text-decoration: none;">eServices Senac</a>
+            </div>
+            <nav class="menu-principal">
+
+                <ul>   
+                    <li>          
+                    <div id="toggle">
+                        <i class="indicator"></i>
+                    </div>
+                    </li>  
+                    <li>
+                        <a href="/topicos/comofunciona">Como funciona</a>
+                    </li>
+                    <% if(!usuario) {%>                    
+                     <li>
+                        <a href="/criarconta">Registrar-se</a>
+                    </li> <% } %>
+
+                    <li>
+                        <% if(usuario) {%> 
+                            <a href="/logout">Logout</a>
+                        <%} else {%> 
+                            <a href="/login">Login</a>
+                        <%} %>
+                       
+                    </li>
+                                        
+
+                </ul>
+
+                <div class="toggle-menu">
+
+                    <button class="toggle-button">
+                        <i class="fa-solid fa-bars"></i>
+                    </button>
+
+                </div>
+
+            </nav>
+        </div>
+    </header>
+      <nav class="toggle-itens">
+          <ul>
+          <li><a href="/topicos/comofunciona">Como funciona</a></li>
+        </li>
+        <% if(!usuario) {%>                    
+         <li>
+            <a href="/criarconta">Registrar-se</a>
+        </li> <% } %>
+
+        <li>
+            <% if(usuario) {%> 
+                <a href="/logout">Logout</a>
+            <%} else {%> 
+                <a href="/login">Login</a>
+            <%} %>
+           
+        </li>
+        <% if(usuario) { %>
+            <li><p style="color: #FFF; padding: 15px;">Seja bem-vindo, <%= usuario.nome.replace(/\w/, c=> c.toUpperCase()) %></p></li>
+            <%} %>
+          </ul>
+      </nav>
+      <script>
+      const body = document.querySelector("body");
+      const toggle = document.getElementById("toggle");
+      toggle.onclick = ()=>{
+          toggle.classList.toggle("active");
+          body.classList.toggle("active");
+      };
+    </script>

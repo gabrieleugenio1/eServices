@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="apple-touch-icon" sizes="180x180" href="/assets/icons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/assets/icons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/assets/icons/favicon-16x16.png">
+    <link rel="manifest" href="/assets/icons/site.webmanifest">
+    <link rel="stylesheet" href="/css/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="/css/reset.css" />
+    <link rel="stylesheet" type="text/css" href="/css/main.css" />
+    <link rel="stylesheet" type="text/css" href="/css/responsivo.css">
+     <link rel="stylesheet" href="/css/resultado.css">
+    <script src="/js/menu.js"></script>
+    <title>Serviço</title>
+</head>
+<body>
+    <%- include("../partials/navbar"); %> 
+    <main style="height: 100%;">
+    <div class="design">
+    <div class="flex">
+    <div class="titulo">
+        <div class="nomeusuario">         
+           <a href=""><h3>Oferecido por: 
+            <%= usuarios.nome %></h3></a>            
+        </div>
+        <h2>
+            <%= post.titulo %>       
+        </h2>
+    </div>
+    <div class="texto">
+        <h4>
+            <%= post.descricao %>
+        </h4>
+        </div>
+    </div>
+    <div class="telefone">
+        <h5>Contato: <%= usuarios.celular %></h5>
+    </div>
+    </div>
+    </main>
+
+    <script src="/js/main.js"></script>
+    <%- include("../partials/footer"); %> 
+</body>
+</html>
