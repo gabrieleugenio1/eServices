@@ -2,7 +2,7 @@
 const express = require('express');
 const router = express.Router();
 const AutenticacoesController = require('../controllers/AutenticacoesController');
-const autenticado = require("../authentication/autenticado");
+const { autenticado } = require("../middleware/Autentication");
 
 //Página de login
 router

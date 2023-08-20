@@ -1,18 +1,19 @@
-const {Sequelize, Conexao} = require('../database/Conexao');
+const { DataTypes } = require('sequelize');
+const Conn = require('../database/Conn');
 const Usuarios = require('./Usuarios');
 
-const Post = Conexao.define("posts", {
+const Post = Conn.define("posts", {
     id:{
-        type: Sequelize.INTEGER,
+        type: DataTypes.INTEGER,
         primaryKey:true,
         autoIncrement:true
     },
     titulo: {
-        type: Sequelize.STRING,
+        type: DataTypes.STRING,
         allowNull:false
     },
     descricao: {
-        type: Sequelize.TEXT,
+        type: DataTypes.TEXT,
         allowNull:false
     },
 });

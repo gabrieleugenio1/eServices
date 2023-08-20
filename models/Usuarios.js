@@ -1,21 +1,22 @@
-const {Sequelize, Conexao} = require('../database/Conexao');
+const { DataTypes } = require("sequelize");
+const Conn = require('../database/Conn');
 
-const Usuarios = Conexao.define("usuarios", {
+const Usuarios = Conn.define("usuarios", {
     id:{
-        type: Sequelize.INTEGER,
+        type: DataTypes.INTEGER,
         primaryKey:true,
         autoIncrement:true
     },
     nome:{
-        type: Sequelize.STRING,
+        type: DataTypes.STRING,
         allowNull:false
     },
     celular:{
-        type: Sequelize.STRING(14),
+        type: DataTypes.STRING(14),
         allowNull:false
     },
     email:{
-        type: Sequelize.STRING(100),
+        type: DataTypes.STRING(100),
         validate:{isEmail:{
             args:true,
             msg:'Email invalido'
@@ -24,11 +25,11 @@ const Usuarios = Conexao.define("usuarios", {
         unique: true
     },
     senha:{
-        type: Sequelize.STRING,
+        type: DataTypes.STRING,
         allowNull:false
     },
     tipoUsuario:{
-        type: Sequelize.BOOLEAN,
+        type: DataTypes.BOOLEAN,
         defaultValue: 0
     }
 

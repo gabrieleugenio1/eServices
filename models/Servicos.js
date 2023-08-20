@@ -1,12 +1,13 @@
-const {Sequelize, Conexao} = require('../database/Conexao');
+const { DataTypes } = require("sequelize");
+const Conn = require('../database/Conn');
 
-const Servicos = Conexao.define("servicos", {
+const Servicos = Conn.define("servicos", {
     id:{
-        type: Sequelize.INTEGER,
+        type: DataTypes.INTEGER,
         primaryKey:true,
         autoIncrement:true
     },
-    descricao: Sequelize.STRING
+    descricao: DataTypes.STRING
 });
 
 Servicos.sync({force:false});
