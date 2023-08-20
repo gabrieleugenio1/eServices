@@ -8,5 +8,5 @@ module.exports = app =>{
         principal,
         geral,
         autenticacoes
-        )
-}
+    );
+};
